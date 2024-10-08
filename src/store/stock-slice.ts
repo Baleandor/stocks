@@ -1,3 +1,4 @@
+"use client";
 import { createSlice } from "@reduxjs/toolkit";
 import { StockSliceType } from "~/utils/types";
 
