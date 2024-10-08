@@ -1,0 +1,1 @@
+export const STOCKS_API_KEY = "553VIR7WT67B002F";
