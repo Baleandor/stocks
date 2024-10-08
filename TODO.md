@@ -1,2 +1,9 @@
+**TEST API LINKS BEFORE STARTING PROJECT**
+
+Test API return object with Axios
+
+**FIX FETCH TYPING**
+
+
 Setup Redux Toolkit
-Integrate yahoo finance API with Redux Toolkig
+Integrate  API with Redux Toolkit
