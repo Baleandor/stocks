@@ -1,4 +1,4 @@
-export const CHOSEN_STOCKS = [
+export const chosenStocks = [
   "NVDA",
   "TSLA",
   "INTC",
