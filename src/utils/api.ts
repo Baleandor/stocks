@@ -1,4 +1,4 @@
-import axios from "axios";
+import axios, { AxiosError } from "axios";
 
 import { STOCKS_API_KEY } from "~/constants/stocksKey";
 
@@ -7,4 +7,4 @@ export const getStock = (symbol: string) =>
     .get(
       `https://www.alphavantage.co/query?function=GLOBAL_QUOTE&symbol=${symbol}&apikey=${STOCKS_API_KEY}`,
     )
-    .catch((error) => console.log(error));
+    .catch((error: Error | AxiosError) => console.log(error.message));
