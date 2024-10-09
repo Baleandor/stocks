@@ -2,7 +2,7 @@ import { StockSliceType } from "~/utils/types";
 
 export default function StockDisplayBox({ stock }: { stock: StockSliceType }) {
   return (
-    <div className="border border-green-400 p-1">
+    <div className="border border-green-400 p-2 rounded-lg">
       <div>
         <span>Name:</span>
         <span>{stock.name}</span>

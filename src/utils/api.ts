@@ -1,17 +1,17 @@
-import axios, { AxiosError } from "axios";
+import axios from "axios";
 
 import { STOCKS_API_KEY } from "~/constants/stocksKey";
-import { StockSliceType } from "./types";
 
-export const getStock = (symbol: string) =>
-  axios
-    .get<StockSliceType>(
+export const getStock = async (symbol: string | undefined) =>
+  await axios
+    .get(
       `https://www.alphavantage.co/query?function=GLOBAL_QUOTE&symbol=${symbol}&apikey=${STOCKS_API_KEY}`,
     )
-    .catch((error: Error | AxiosError) => {
+    .catch((error) => {
       if (axios.isAxiosError(error)) {
-        console.log("Error message: ", error.message);
+        return error.message;
       } else {
-        console.log("Unexepcted error!", error);
+        return error;
       }
-    });
+    })
+    .then((res) => res.data["Global Quote"]);

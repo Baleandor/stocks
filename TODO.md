@@ -1,6 +1,5 @@
-**TEST API LINKS BEFORE STARTING PROJECT**
-
-Test API return object with Axios
+Wrapt data fetching in Suspense
+Watch bookmarked video again and clean code up
 
 **FIX FETCH TYPING**
 

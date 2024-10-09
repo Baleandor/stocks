@@ -1,5 +1,5 @@
 "use client";
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { StockSliceType } from "~/utils/types";
 
 interface StockState {
@@ -12,7 +12,16 @@ const stockSlice = createSlice({
   name: "stocks",
   initialState,
   reducers: {
-    addStock: () => {},
+    addStock: (state, action: PayloadAction<StockSliceType>) => {
+      const newStock = {
+        name: action.payload.name,
+        symbol: action.payload.symbol,
+        price: action.payload.price,
+        changePercent: action.payload.changePercent,
+      };
+
+      state.stocks.push(newStock);
+    },
   },
 });
 
