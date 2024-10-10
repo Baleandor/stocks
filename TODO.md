@@ -1,8 +1,11 @@
-Wrapt data fetching in Suspense
-Watch bookmarked video again and clean code up
+setupd responsiveness for different screen sizes
+
+
+
+
+
+
+
+
 
 **FIX FETCH TYPING**
-
-
-Setup Redux Toolkit
-Integrate  API with Redux Toolkit

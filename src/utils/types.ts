@@ -5,7 +5,7 @@ export type StockSliceType = {
   changePercent: number;
 };
 
-export type StockAxiosType = {
+export type StockNumberType = {
   "01. symbol": string;
   "02. open": string;
   "03. high": string;
@@ -16,4 +16,16 @@ export type StockAxiosType = {
   "08. previous close": string;
   "09. change": string;
   "10. change percent": string;
+};
+
+export type StockNameType = {
+  "1. symbol": string;
+  "2. name": string;
+  "3. type": string;
+  "4. region": string;
+  "5. marketOpen": string;
+  "6. marketClose": string;
+  "7. timezone": string;
+  "8. currency": string;
+  "9. matchScore": string;
 };
