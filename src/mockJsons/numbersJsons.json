@@ -1,0 +1,136 @@
+{
+    "Global Quote": [
+        {
+        "01. symbol": "IBM",
+        "02. open": "229.2000",
+        "03. high": "234.9500",
+        "04. low": "228.5000",
+        "05. price": "234.3000",
+        "06. volume": "5083566",
+        "07. latest trading day": "2024-10-09",
+        "08. previous close": "228.6200",
+        "09. change": "5.6800",
+        "10. change percent": "2.4845%"
+    },      {
+        "01. symbol": "NVDA",
+        "02. open": "229.2000",
+        "03. high": "234.9500",
+        "04. low": "228.5000",
+        "05. price": "234.3000",
+        "06. volume": "5083566",
+        "07. latest trading day": "2024-10-09",
+        "08. previous close": "228.6200",
+        "09. change": "5.6800",
+        "10. change percent": "2.4845%"
+    },     {
+        "01. symbol": "TSLA",
+        "02. open": "229.2000",
+        "03. high": "234.9500",
+        "04. low": "228.5000",
+        "05. price": "234.3000",
+        "06. volume": "5083566",
+        "07. latest trading day": "2024-10-09",
+        "08. previous close": "228.6200",
+        "09. change": "5.6800",
+        "10. change percent": "2.4845%"
+    },     {
+        "01. symbol": "INTC",
+        "02. open": "229.2000",
+        "03. high": "234.9500",
+        "04. low": "228.5000",
+        "05. price": "234.3000",
+        "06. volume": "5083566",
+        "07. latest trading day": "2024-10-09",
+        "08. previous close": "228.6200",
+        "09. change": "5.6800",
+        "10. change percent": "2.4845%"
+    },     {
+        "01. symbol": "LOBO",
+        "02. open": "229.2000",
+        "03. high": "234.9500",
+        "04. low": "228.5000",
+        "05. price": "234.3000",
+        "06. volume": "5083566",
+        "07. latest trading day": "2024-10-09",
+        "08. previous close": "228.6200",
+        "09. change": "5.6800",
+        "10. change percent": "2.4845%"
+    },     {
+        "01. symbol": "BMXT",
+        "02. open": "229.2000",
+        "03. high": "234.9500",
+        "04. low": "228.5000",
+        "05. price": "234.3000",
+        "06. volume": "5083566",
+        "07. latest trading day": "2024-10-09",
+        "08. previous close": "228.6200",
+        "09. change": "5.6800",
+        "10. change percent": "2.4845%"
+    },     {
+        "01. symbol": "GME",
+        "02. open": "229.2000",
+        "03. high": "234.9500",
+        "04. low": "228.5000",
+        "05. price": "234.3000",
+        "06. volume": "5083566",
+        "07. latest trading day": "2024-10-09",
+        "08. previous close": "228.6200",
+        "09. change": "5.6800",
+        "10. change percent": "2.4845%"
+    },     {
+        "01. symbol": "GMWKF",
+        "02. open": "229.2000",
+        "03. high": "234.9500",
+        "04. low": "228.5000",
+        "05. price": "234.3000",
+        "06. volume": "5083566",
+        "07. latest trading day": "2024-10-09",
+        "08. previous close": "228.6200",
+        "09. change": "5.6800",
+        "10. change percent": "2.4845%"
+    },     {
+        "01. symbol": "AAPL",
+        "02. open": "229.2000",
+        "03. high": "234.9500",
+        "04. low": "228.5000",
+        "05. price": "234.3000",
+        "06. volume": "5083566",
+        "07. latest trading day": "2024-10-09",
+        "08. previous close": "228.6200",
+        "09. change": "5.6800",
+        "10. change percent": "2.4845%"
+    },     {
+        "01. symbol": "SPOT",
+        "02. open": "229.2000",
+        "03. high": "234.9500",
+        "04. low": "228.5000",
+        "05. price": "234.3000",
+        "06. volume": "5083566",
+        "07. latest trading day": "2024-10-09",
+        "08. previous close": "228.6200",
+        "09. change": "5.6800",
+        "10. change percent": "2.4845%"
+    },      {
+        "01. symbol": "PGR",
+        "02. open": "229.2000",
+        "03. high": "234.9500",
+        "04. low": "228.5000",
+        "05. price": "234.3000",
+        "06. volume": "5083566",
+        "07. latest trading day": "2024-10-09",
+        "08. previous close": "228.6200",
+        "09. change": "5.6800",
+        "10. change percent": "2.4845%"
+    },     {
+        "01. symbol": "GOOG",
+        "02. open": "229.2000",
+        "03. high": "234.9500",
+        "04. low": "228.5000",
+        "05. price": "234.6000",
+        "06. volume": "5083566",
+        "07. latest trading day": "2024-10-09",
+        "08. previous close": "228.6200",
+        "09. change": "5.6800",
+        "10. change percent": "2.4845%"
+    }]
+}
