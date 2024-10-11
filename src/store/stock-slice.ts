@@ -71,13 +71,13 @@ export const fetchAStockName = createAsyncThunk(
           }
         });
 
-      const response = bestMatches.bestMatches;
+      // const response = bestMatches.bestMatches;
 
-      const wantedStock = response.find(
-        (stock) => stock["1. symbol"] === symbol,
-      );
+      // const wantedStock = response.find(
+      //   (stock) => stock["1. symbol"] === symbol,
+      // );
 
-      return wantedStock;
+      // return wantedStock;
     } catch (err: any) {
       return err.message;
     }
