@@ -39,7 +39,7 @@ export default function HomePage() {
       {stockStatus === "loading" && <LoadingSpinner />}
 
       {stockStatus === "succeeded" && (
-        <div className="grid grid-cols-4 gap-4">
+        <div className="grid gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
           {stocksState.map((stockInReduxState) => {
             return (
               <StockDisplayBox
