@@ -22,7 +22,7 @@ export default function HomePage() {
 
   const stocksState = useSelector(getAllStocks);
   const stockStatus = useSelector(getStocksStatus);
-  const stockError = useSelector(getStocksError);
+  const stockErrors = useSelector(getStocksError);
 
   useEffect(() => {
     CHOSEN_STOCKS.forEach((stock: string) => {
@@ -31,10 +31,13 @@ export default function HomePage() {
       );
     });
   }, [dispatch]);
-
+//console.log(stockErrors)
   return (
     <main className="p-3">
-      {stockError && <ErrorBox errorMessage={stockError} />}
+      {stockErrors.length > 0 &&
+        stockErrors.map((stockError) => (
+          <ErrorBox key={stockError} errorMessage={stockError} />
+        ))}
 
       {stockStatus === "loading" && <LoadingSpinner />}
 

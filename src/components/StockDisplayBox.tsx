@@ -1,4 +1,4 @@
-import { StockSliceType } from "~/utils/types";
+import type { StockSliceType } from "~/utils/types";
 
 export default function StockDisplayBox({ stock }: { stock: StockSliceType }) {
   return (
