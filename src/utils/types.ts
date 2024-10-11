@@ -5,7 +5,7 @@ export type StockSliceType = {
   changePercent: number;
 };
 
-export type StockNumberType = {
+export type StockDailyDataType = {
   "01. symbol": string;
   "02. open": string;
   "03. high": string;

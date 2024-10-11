@@ -3,38 +3,50 @@ import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import type { PayloadAction } from "@reduxjs/toolkit";
 import type {
   StockNameType,
-  StockNumberType,
+  StockDailyDataType,
   StockSliceType,
 } from "~/utils/types";
-import axios from "axios";
+import axios, { AxiosResponse } from "axios";
 
 import bestMatches from "../mockJsons/namesJsons.json" assert { type: "json" };
 import stockNumbers from "../mockJsons/numbersJsons.json" assert { type: "json" };
+
 import type { RootState } from "./store";
+import { BASE_URL } from "~/constants/baseUrl";
+import { act } from "react";
+import { STOCKS_API_KEY } from "~/constants/stocksKey";
 
 type StockStoreState = {
   stocks: StockSliceType[];
   status: "idle" | "loading" | "succeeded" | "failed";
-  error: string | null;
+  error: string[];
 };
 
 const initialState: StockStoreState = {
   stocks: [],
   status: "idle",
-  error: null,
+  error: [],
 };
 
 export const fetchDailyStockData = createAsyncThunk(
   "stocks/fetchAStockNumbers",
   async (symbol: string | undefined) => {
     try {
-      const response: StockNumberType[] = stockNumbers["Global Quote"];
+      await axios.get(`${BASE_URL}&symbol=${symbol}`).then((response) => {
+        if (response.data["Global Quote"] === undefined) {
+          return new Error("Exceeded daily calls limit!");
+        } else {
+          return response.data["Global Quote"] as StockDailyDataType;
+        }
+      });
 
-      const wantedStock = response.find(
-        (stock) => stock["01. symbol"] === symbol,
-      );
+      // const response: StockDailyDataType[] = stockNumbers["Global Quote"];
 
-      return wantedStock;
+      // const wantedStock = response.find(
+      //   (stock) => stock["01. symbol"] === symbol,
+      // );
+
+      // return wantedStock;
     } catch (error) {
       return error.message;
     }
@@ -46,6 +58,18 @@ export const fetchAStockName = createAsyncThunk(
   async (symbol: string | undefined) => {
     try {
       //  const response = await axios.get(BASE_URL);
+
+      await axios
+        .get(
+          `https://www.alphavantage.co/query?function=SYMBOL_SEARCH&keywords=${symbol}&apikey=${STOCKS_API_KEY}`,
+        )
+        .then((response) => {
+          if (response.data["bestMatches"] === undefined) {
+            return new Error("Exceeded daily calls limit!");
+          } else {
+            return response.data["Global Quote"] as StockDailyDataType;
+          }
+        });
 
       const response = bestMatches.bestMatches;
 
@@ -83,7 +107,19 @@ const stockSlice = createSlice({
     });
     builder.addCase(
       fetchDailyStockData.fulfilled,
-      (state, action: PayloadAction<StockNumberType>) => {
+      (state, action: PayloadAction<StockDailyDataType>) => {
+        if (action.payload == undefined) {
+          state.status = "failed";
+          if (
+            !state.error.includes("Exceeded daily calls limit for stock data!")
+          ) {
+            state.error = [
+              ...state.error,
+              "Exceeded daily calls limit for stock data!",
+            ];
+          }
+          return;
+        }
         state.status = "succeeded";
 
         //remember to add back in ["Global Quote"]
@@ -99,20 +135,35 @@ const stockSlice = createSlice({
     );
     builder.addCase(fetchDailyStockData.rejected, (state, action) => {
       state.status = "failed";
-      state.error = action.error.message ?? null;
+      if (action.error.message)
+        state.error = [...state.error, action.error.message];
     });
     //fetch stock name
     builder.addCase(fetchAStockName.pending, (state) => {
       state.status = "loading";
     });
     builder.addCase(fetchAStockName.fulfilled, (state, action) => {
+      console.log(action.payload)
+      if (action.payload == undefined) {
+        state.status = "failed";
+        if (
+          !state.error.includes("Exceeded daily calls limit for stock name!")
+        ) {
+          state.error = [
+            ...state.error,
+            "Exceeded daily calls limit for stock name!",
+          ];
+        }
+        return;
+      }
       state.status = "succeeded";
 
       stockSlice.caseReducers.updateStock(state, action);
     });
     builder.addCase(fetchAStockName.rejected, (state, action) => {
       state.status = "failed";
-      state.error = action.error.message ?? null;
+      if (action.error.message)
+        state.error = [...state.error, action.error.message];
     });
   },
 });
