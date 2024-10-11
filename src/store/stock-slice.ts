@@ -57,8 +57,6 @@ export const fetchAStockName = createAsyncThunk(
   "stocks/fetchAStockName",
   async (symbol: string | undefined) => {
     try {
-      //  const response = await axios.get(BASE_URL);
-
       await axios
         .get(
           `https://www.alphavantage.co/query?function=SYMBOL_SEARCH&keywords=${symbol}&apikey=${STOCKS_API_KEY}`,
@@ -122,7 +120,6 @@ const stockSlice = createSlice({
         }
         state.status = "succeeded";
 
-        //remember to add back in ["Global Quote"]
         const newStock = {
           name: "",
           symbol: action.payload["01. symbol"],
@@ -143,7 +140,6 @@ const stockSlice = createSlice({
       state.status = "loading";
     });
     builder.addCase(fetchAStockName.fulfilled, (state, action) => {
-      console.log(action.payload)
       if (action.payload == undefined) {
         state.status = "failed";
         if (

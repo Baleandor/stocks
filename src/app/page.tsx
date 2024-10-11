@@ -31,13 +31,16 @@ export default function HomePage() {
       );
     });
   }, [dispatch]);
-//console.log(stockErrors)
+  //console.log(stockErrors)
   return (
     <main className="p-3">
-      {stockErrors.length > 0 &&
-        stockErrors.map((stockError) => (
-          <ErrorBox key={stockError} errorMessage={stockError} />
-        ))}
+      {stockErrors.length > 0 && (
+        <div className="flex flex-col gap-2">
+          {stockErrors.map((stockError) => (
+            <ErrorBox key={stockError} errorMessage={stockError} />
+          ))}
+        </div>
+      )}
 
       {stockStatus === "loading" && <LoadingSpinner />}
 
