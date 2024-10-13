@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Header component matches snapshot 1`] = `
+<DocumentFragment>
+  <h1
+    class="bg-none text-center text-4xl pt-3"
+  >
+    Stock Market Dashboard
+  </h1>
+</DocumentFragment>
+`;

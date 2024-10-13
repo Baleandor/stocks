@@ -29,3 +29,11 @@ export type StockNameType = {
   "8. currency": string;
   "9. matchScore": string;
 };
+
+export type AxiosStockNameReponse = {
+  bestMatches: StockNameType[];
+};
+
+export type AxiosStockDataResponse = {
+  "Global Quote": StockDailyDataType;
+};
