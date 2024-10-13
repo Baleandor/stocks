@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ErrorBox component matches snapshot 1`] = `
+<DocumentFragment>
+  <div
+    class="m-auto h-fit w-fit border border-red-500 p-2 text-center"
+  >
+    <span
+      class="text-4xl text-red-700"
+    >
+      Snapshot error message
+    </span>
+  </div>
+</DocumentFragment>
+`;

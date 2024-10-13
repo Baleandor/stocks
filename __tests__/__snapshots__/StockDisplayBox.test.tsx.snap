@@ -1,0 +1,42 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`StockDisplayBox component matches snapshot 1`] = `
+<DocumentFragment>
+  <div
+    class="m-auto h-[155px] max-w-60 rounded-lg border border-green-400 p-2 text-left"
+  >
+    <div>
+      <span>
+        Name: 
+      </span>
+      <span>
+        Apple Inc.
+      </span>
+    </div>
+    <div>
+      <span>
+        Symbol: 
+      </span>
+      <span>
+        AAPL
+      </span>
+    </div>
+    <div>
+      <span>
+        Current Price: 
+      </span>
+      <span>
+        145.09
+      </span>
+    </div>
+    <div>
+      <span>
+        Daily Percentage Change: 
+      </span>
+      <span>
+        1.25%
+      </span>
+    </div>
+  </div>
+</DocumentFragment>
+`;
