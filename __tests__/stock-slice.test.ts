@@ -179,7 +179,7 @@ describe("Stock Slice", () => {
         .onGet(
           `https://www.alphavantage.co/query?function=SYMBOL_SEARCH&keywords=${stockSymbol}&apikey=${STOCKS_API_KEY}`,
         )
-        .reply(500);
+        .reply(404);
 
       await store.dispatch(fetchAStockName(stockSymbol));
 

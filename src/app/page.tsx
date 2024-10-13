@@ -1,7 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
-import type { RootState } from "../store/store";
+import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import StockDisplayBox from "~/components/StockDisplayBox";
 import { CHOSEN_STOCKS } from "~/constants/chosenStocks";
@@ -31,9 +30,9 @@ export default function HomePage() {
       );
     });
   }, [dispatch]);
-  //console.log(stockErrors)
+
   return (
-    <main className="p-3">
+    <div className="p-3">
       {stockErrors.length > 0 && (
         <div className="flex flex-col gap-2">
           {stockErrors.map((stockError) => (
@@ -56,6 +55,6 @@ export default function HomePage() {
           })}
         </div>
       )}
-    </main>
+    </div>
   );
 }

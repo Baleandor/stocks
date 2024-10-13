@@ -43,7 +43,7 @@ export const fetchDailyStockData = createAsyncThunk(
           }
         });
 
-      // fallback test code for when daily calls are exceeded
+      //fallback test code for when daily calls are exceeded
       // const response: StockDailyDataType[] = stockNumbers["Global Quote"];
       // const wantedStock = response.find(
       //   (stock) => stock["01. symbol"] === symbol,
@@ -94,7 +94,6 @@ const stockSlice = createSlice({
     // REDUCER TO HANDLE MATCHING STOCK LOGIC AND UPDATING
 
     updateStock: (state, action: PayloadAction<StockNameType>) => {
-      console.log("state:", state, "action:", action);
       state.stocks = state.stocks.map((stock) =>
         stock.symbol === action.payload["1. symbol"]
           ? { ...stock, name: action.payload["2. name"] }
