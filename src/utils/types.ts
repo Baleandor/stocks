@@ -2,6 +2,7 @@ export type StockSliceType = {
   name: string;
   symbol: string;
   price: number;
+  change: number;
   changePercent: number;
 };
 

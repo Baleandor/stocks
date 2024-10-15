@@ -30,7 +30,7 @@ const initialState: StockStoreState = {
 };
 
 export const fetchDailyStockData = createAsyncThunk(
-  "stocks/fetchAStockNumbers",
+  "stocks/fetchDailyStockData",
   async (symbol: string | undefined) => {
     try {
       await axios
@@ -127,6 +127,7 @@ const stockSlice = createSlice({
           name: "",
           symbol: action.payload["01. symbol"],
           price: Number(action.payload["05. price"]),
+          change: Number(action.payload["09. change"]),
           changePercent: parseFloat(action.payload["10. change percent"]),
         };
 
