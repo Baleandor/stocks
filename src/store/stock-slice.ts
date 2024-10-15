@@ -33,22 +33,22 @@ export const fetchDailyStockData = createAsyncThunk(
   "stocks/fetchDailyStockData",
   async (symbol: string | undefined) => {
     try {
-      await axios
-        .get(`${BASE_URL}&symbol=${symbol}`)
-        .then((response: AxiosResponse<AxiosStockDataResponse>) => {
-          if (response.data["Global Quote"] === undefined) {
-            return new Error("Exceeded daily calls limit for stock data!");
-          } else {
-            return response.data["Global Quote"];
-          }
-        });
+      // await axios
+      //   .get(`${BASE_URL}&symbol=${symbol}`)
+      //   .then((response: AxiosResponse<AxiosStockDataResponse>) => {
+      //     if (response.data["Global Quote"] === undefined) {
+      //       return new Error("Exceeded daily calls limit for stock data!");
+      //     } else {
+      //       return response.data["Global Quote"];
+      //     }
+      //   });
 
       //fallback test code for when daily calls are exceeded
-      // const response: StockDailyDataType[] = stockNumbers["Global Quote"];
-      // const wantedStock = response.find(
-      //   (stock) => stock["01. symbol"] === symbol,
-      // );
-      // return wantedStock;
+      const response: StockDailyDataType[] = stockNumbers["Global Quote"];
+      const wantedStock = response.find(
+        (stock) => stock["01. symbol"] === symbol,
+      );
+      return wantedStock;
     } catch (error: any) {
       return error.message;
     }
@@ -59,28 +59,28 @@ export const fetchAStockName = createAsyncThunk(
   "stocks/fetchAStockName",
   async (symbol: string | undefined) => {
     try {
-      await axios
-        .get(
-          `https://www.alphavantage.co/query?function=SYMBOL_SEARCH&keywords=${symbol}&apikey=${STOCKS_API_KEY}`,
-        )
-        .then((response: AxiosResponse<AxiosStockNameReponse>) => {
-          if (response.data.bestMatches === undefined) {
-            return new Error("Exceeded daily calls limit!");
-          } else {
-            response.data.bestMatches.forEach((match: StockNameType) => {
-              if (match["1. symbol"] === symbol) {
-                return match;
-              }
-            });
-          }
-        });
+      // await axios
+      //   .get(
+      //     `https://www.alphavantage.co/query?function=SYMBOL_SEARCH&keywords=${symbol}&apikey=${STOCKS_API_KEY}`,
+      //   )
+      //   .then((response: AxiosResponse<AxiosStockNameReponse>) => {
+      //     if (response.data.bestMatches === undefined) {
+      //       return new Error("Exceeded daily calls limit!");
+      //     } else {
+      //       response.data.bestMatches.forEach((match: StockNameType) => {
+      //         if (match["1. symbol"] === symbol) {
+      //           return match;
+      //         }
+      //       });
+      //     }
+      //   });
 
       // fallback test code for when daily calls are exceeded
-      // const response = bestMatches.bestMatches;
-      // const wantedStock = response.find(
-      //   (stock) => stock["1. symbol"] === symbol,
-      // );
-      // return wantedStock;
+      const response = bestMatches.bestMatches;
+      const wantedStock = response.find(
+        (stock) => stock["1. symbol"] === symbol,
+      );
+      return wantedStock;
     } catch (err: any) {
       return err.message;
     }
@@ -93,7 +93,10 @@ const stockSlice = createSlice({
   reducers: {
     // REDUCER TO HANDLE MATCHING STOCK LOGIC AND UPDATING
 
-    updateStock: (state, action: PayloadAction<StockNameType>) => {
+    updateStock: (
+      state,
+      action: PayloadAction<StockNameType | StockDailyDataType>,
+    ) => {
       state.stocks = state.stocks.map((stock) =>
         stock.symbol === action.payload["1. symbol"]
           ? { ...stock, name: action.payload["2. name"] }
@@ -127,7 +130,7 @@ const stockSlice = createSlice({
           name: "",
           symbol: action.payload["01. symbol"],
           price: Number(action.payload["05. price"]),
-          change: Number(action.payload["09. change"]),
+          change: parseFloat(action.payload["09. change"]),
           changePercent: parseFloat(action.payload["10. change percent"]),
         };
 

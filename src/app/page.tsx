@@ -31,7 +31,6 @@ export default function HomePage() {
     });
   }, [dispatch]);
 
- // console.log(stocksState)
   return (
     <div className="p-3">
       {stockErrors.length > 0 && (
