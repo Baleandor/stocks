@@ -2,7 +2,9 @@ import type { StockSliceType } from "~/utils/types";
 
 export default function StockDisplayBox({ stock }: { stock: StockSliceType }) {
   return (
-    <div className="m-auto h-[155px] max-w-60 rounded-lg border border-green-400 p-2 text-left">
+    <div
+      className={`m-auto h-[155px] max-w-60 rounded-lg border ${stock.change > 0 ? "border-green-400" : "border-red-400"} p-2 text-left`}
+    >
       <div>
         <span>Name: </span>
         <span>{stock.name}</span>
